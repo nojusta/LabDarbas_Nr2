@@ -327,7 +327,6 @@ void processStudents(Container &students, bool Median, std::chrono::high_resolut
                     else
                     {
                         std::cout << "Perkėlimo konstruktoriaus testas sėkmingas.\n\n";
-                        std::cout<< s1;
                     }
 
                     // Testuojame priskyrimo operatorius
@@ -365,10 +364,13 @@ void processStudents(Container &students, bool Median, std::chrono::high_resolut
                     Student s6;
                     iss >> s6; // Įvesties operatorius
 
-                    if (!(s6.getFirstName() == expectedFirstName && s6.getLastName() == expectedLastName && s6.getExamResults() == expectedExamResults && s6.getHomeworkResults() == expectedHomeworkResults)) {
+                    if (!(s6.getFirstName() == expectedFirstName && s6.getLastName() == expectedLastName && s6.getExamResults() == expectedExamResults && s6.getHomeworkResults() == expectedHomeworkResults)) 
+                    {
                         std::cerr << "Įvesties operatoriaus testas nepavyko. \n\n";
                         return;
-                    } else {
+                    } 
+                    else 
+                    {
                         std::cout << "Įvesties operatoriaus testas sėkmingas.\n\n";
                     }
 
