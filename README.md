@@ -1,4 +1,4 @@
-# v1.5
+# v2.0
 
 ## Diegimo instrukcija
 
@@ -23,7 +23,7 @@ CXX = g++
 CXXFLAGS = -std=c++14 -O3
 
 # Vykdymo failo pavadinimas
-TARGET = v1_5
+TARGET = v2
 
 # Šaltinio failai
 SRCS = main.cpp functionality.cpp input.cpp calculations.cpp student.cpp
@@ -57,7 +57,7 @@ Tada gausite tokį rezultatą:
 
 - Paleiskite programą naudodami šią komandą:
 ```
-./v1_5
+./v2
 ```
 
 ### Valymo instrukcija
@@ -72,7 +72,7 @@ make distclean
 
 - Paleiskite programą naudodami šią komandą:
 ```
-./v1
+./v2
 ```
 - Programa pateiks meniu su įvairiomis funkcijomis. Pasirinkite funkciją įvedę atitinkamą numerį ir spauskite `Enter`.
 
@@ -94,6 +94,7 @@ make distclean
   - Naudojama klasė, saugojant studentų duomenis.
   - Galima testuoti visus "Rule of five" konstruktorius ir I/O operatorius.
   - Yra abstrakti klasė Person. Student klasė yra Person klasės išvestinė klasė.
+  - DoxyGen sugeneruota HTML/TEX formato dokumentacija.
 - Norėdami baigti darbą su programa, pasirinkite atitinkamą skaičių.
 
 ## Klasės naudojami "Rule of five" ir I/O operatoriai.
@@ -395,3 +396,5 @@ Bendra išvada yra, kad konteinerio tipo ir strategijos pasirinkimas gali turėt
 - v1.1: Naudojamos klasės su destruktoriais ir konstruktoriais, vietoj struktūrų.
 
 - v1.2: Prideda galimybė testuoti visus "Rule of five" konstruktorius ir I/O operatorius.
+
+- v1.5: Abstrakti klasė Person. Student klasė yra Person klasės išvestinė klasė.
