@@ -1,0 +1,31 @@
+\doxysection{calculations.\+h}
+\hypertarget{calculations_8h_source}{}\label{calculations_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CALCULATIONS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CALCULATIONS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}student.h"{}}\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}input.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{bool}\ compareByFirstName(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ b);}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{bool}\ compareByLastName(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ b);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{bool}\ compareByGrade(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ b);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{double}\ calculateAverage(\textcolor{keyword}{const}\ std::vector<int>\&\ homeworkResults);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{double}\ calculateFinalGrade(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ data,\ \textcolor{keywordtype}{bool}\ Median);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{double}\ calculateMedian(std::vector<int>\ homeworkResults);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ sortStudents(Container\&\ students,\ \textcolor{keywordtype}{int}\ criteria);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ sortStudents<std::list<Student>>(std::list<Student>\&\ students,\ \textcolor{keywordtype}{int}\ criteria);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CALCULATIONS\_H}}
+
+\end{DoxyCode}

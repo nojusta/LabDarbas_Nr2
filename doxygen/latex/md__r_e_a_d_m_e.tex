@@ -1,0 +1,516 @@
+\chapter{v2.0}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{v2.0@{v2.0}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Diegimo instrukcija}{Diegimo instrukcija}}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Atsisiųskite projekto kodą iš Git\+Hub naudodami {\ttfamily git clone} komandą su projekto URL\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/nojusta/LabDarbas\_nr2}
+
+\end{DoxyCode}
+
+\item Pereikite į projekto katalogą naudodami cd komandą. Pavyzdžiui\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ *projekto\ vieta\ kompiuteryje*}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Sukurkite Makefile su reikiamomis taisyklėmis. Jūsų Makefile turėtų atrodyti maždaug taip (Unix OS atveju)\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Kompiliatorius}
+\DoxyCodeLine{CXX\ =\ g++}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Kompiliatoriaus\ parametrai}
+\DoxyCodeLine{CXXFLAGS\ =\ -\/std=c++14\ -\/O3}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Vykdymo\ failo\ pavadinimas}
+\DoxyCodeLine{TARGET\ =\ v2}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Šaltinio\ failai}
+\DoxyCodeLine{SRCS\ =\ main.cpp\ functionality.cpp\ input.cpp\ calculations.cpp\ student.cpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Objektų\ failai}
+\DoxyCodeLine{OBJS\ =\ \$(SRCS:.cpp=.o)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Taisyklė\ programa\ susieti}
+\DoxyCodeLine{\$(TARGET):\ \$(OBJS)}
+\DoxyCodeLine{\ \ \ \ \$(CXX)\ \$(CXXFLAGS)\ -\/o\ \$(TARGET)\ \$(OBJS)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Taisyklė\ kompiliuoti\ šaltinio\ failus}
+\DoxyCodeLine{.cpp.o:}
+\DoxyCodeLine{\ \ \ \ \$(CXX)\ \$(CXXFLAGS)\ -\/c\ \$<\ \ -\/o\ \$@}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Taisyklė\ išvalyti\ tarpinius\ failus}
+\DoxyCodeLine{clean:}
+\DoxyCodeLine{\ \ \ \ \$(RM)\ \$(OBJS)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Taisyklė\ išvalyti\ viską}
+\DoxyCodeLine{distclean:\ clean}
+\DoxyCodeLine{\ \ \ \ \$(RM)\ \$(TARGET)}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item Sukompiliuokite programą naudodami make komandą\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+ Tada gausite tokį rezultatą\+: ~\newline
+
+\end{DoxyItemize}
+
+
+
+
+\begin{DoxyItemize}
+\item Paleiskite programą naudodami šią komandą\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./v2}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{Valymo instrukcija}{Valymo instrukcija}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Jei norite išvalyti sukompiliuotus failus, galite naudoti šias make komandas\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ clean}
+\DoxyCodeLine{make\ distclean}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Naudojimosi instrukcija}{Naudojimosi instrukcija}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Paleiskite programą naudodami šią komandą\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./v2}
+
+\end{DoxyCode}
+
+\item Programa pateiks meniu su įvairiomis funkcijomis. Pasirinkite funkciją įvedę atitinkamą numerį ir spauskite {\ttfamily Enter}.
+\end{DoxyItemize}
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Programos funkcijos\+:}{Programos funkcijos\+:}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Nuskaito duomenis iš naudotojo arba failo ir patikrina ar jie yra teisingi (naudojant išimčių valdymą).
+\item Duoda naudotojui galimybė pasirinkti du galutinio balo skaičiavimo būdus -\/ skaičiuojant vidurkį ar medianą.
+\item Leidžia pasirinkti 5 skirtingus būdus įvesti, nuskaityti ar sugeneruoti duomenis.
+\item Dinamiškai paskiria atmintį pagal įvesta / nuskaitytą duomenų kiekį.
+\item Atidaro testavimo failus ir apskaičiuoja laiką, kurį praleidžia apdorojant duomenis iš failų.
+\item Visi pranešimai išvedami lietuvių kalbą.
+\item Projektas išskaidytas į kelis failus (.h ir .cpp).
+\item Generuoja penkis atsitiktinius studentų sąrašų failus, sudarytus iš\+: 1 000, 10 000, 100 000, 1 000 000, 10 000 000 įrašų
+\item Atlieka tyrimus / testavimus su sugeneruotais failais.
+\item Surūšiuoja studentus ir išveda į du naujus failus.
+\item Yra 3 skirtingi konteinerio tipo pasirinkimai testavimui -\/ vector, deque, list.
+\item Yra 3 skirtingos strategijos duomenų skirstymui.
+\item Naudojama klasė, saugojant studentų duomenis.
+\item Galima testuoti visus "{}\+Rule of five"{} konstruktorius ir I/O operatorius.
+\item Yra abstrakti klasė \doxylink{class_person}{Person}. \doxylink{class_student}{Student} klasė yra \doxylink{class_person}{Person} klasės išvestinė klasė.
+\item Doxy\+Gen sugeneruota HTML/\+TEX formato dokumentacija.
+\end{DoxyItemize}
+
+Norėdami baigti darbą su programa, pasirinkite atitinkamą skaičių.\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Klasės naudojami "{}\+Rule of five"{} ir I/O operatoriai.}{Klasės naudojami "{}\+Rule of five"{} ir I/O operatoriai.}}\label{md__r_e_a_d_m_e_autotoc_md5}
+"{}\+Rule of five"{} yra C++ programavimo kalbos konceptas, kuris apima penkis pagrindinius komponentus, reikalingus objektų valdymui\+: destruktorius, kopijavimo konstruktorius, kopijavimo priskyrimo operatorius, perkeliamasis konstruktorius ir perkeliamasis priskyrimo operatorius. Šiame projekte "{}\+Rule of five"{} yra taikomas {\ttfamily \doxylink{class_student}{Student}} klasei.
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Destruktorius}}\+: Šis komponentas naudojamas išvalyti {\ttfamily \doxylink{class_student}{Student}} objektą, kai jis nebereikalingas.
+\item {\bfseries{Kopijavimo konstruktorius}}\+: Šis komponentas leidžia sukurti naują {\ttfamily \doxylink{class_student}{Student}} objektą, kuris yra identiškas esamam {\ttfamily \doxylink{class_student}{Student}} objektui.
+\item {\bfseries{Kopijavimo priskyrimo operatorius}}\+: Šis operatorius leidžia priskirti vieno {\ttfamily \doxylink{class_student}{Student}} objekto vertę kitam {\ttfamily \doxylink{class_student}{Student}} objektui.
+\item {\bfseries{Perkeliamasis konstruktorius}}\+: Šis komponentas leidžia "{}perkelti"{} {\ttfamily \doxylink{class_student}{Student}} objektą, o ne kopijuoti jį. Tai yra efektyvesnis būdas sukurti naują {\ttfamily \doxylink{class_student}{Student}} objektą, kai turime laikiną {\ttfamily \doxylink{class_student}{Student}} objektą, kurio mums nebereikia.
+\item {\bfseries{Perkeliamasis priskyrimo operatorius}}\+: Šis operatorius leidžia "{}perkelti"{} vieno {\ttfamily \doxylink{class_student}{Student}} objekto vertę į kitą {\ttfamily \doxylink{class_student}{Student}} objektą, o ne kopijuoti ją.
+\end{DoxyEnumerate}
+
+Be to, šiame projekte yra naudojami įvesties ({\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}) ir išvesties ({\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}) operatoriai.
+
+{\bfseries{Įvesties operatorius ({\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}})\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Šis operatorius naudojamas nuskaitant duomenis iš įvesties srauto (pvz., {\ttfamily std\+::cin} ar {\ttfamily std\+::istringstream}) į {\ttfamily \doxylink{class_student}{Student}} objektą.}}
+
+{\bfseries{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Išvesties operatorius ({\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}})}}\+: Šis operatorius naudojamas rašant {\ttfamily \doxylink{class_student}{Student}} objektą į išvesties srautą (pvz., {\ttfamily std\+::cout} ar {\ttfamily std\+::ostringstream}).
+
+Šie operatoriai leidžia lengvai ir efektyviai manipuliuoti {\ttfamily \doxylink{class_student}{Student}} objektais, nuskaitant duomenis iš įvesties srautų ir rašant juos į išvesties srautus.
+
+Visiems konstruktoriams / operatoriams yra atlikti testai, siekiantys patikrinti ar visi jie veikia. Testus galima atlikti pasirinkus tai per meniu.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Programos sparta naudojant skirtingus kompiliatoriaus optimizavimo lygius}{Programos sparta naudojant skirtingus kompiliatoriaus optimizavimo lygius}}\label{md__r_e_a_d_m_e_autotoc_md6}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{Testavimo sistemos parametrai\+:}{Testavimo sistemos parametrai\+:}}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Saugykla\+: 256 GB, Integruota NVMe SSD
+\item Atmintis\+: 8 GB RAM
+\item Procesorius\+: Apple M1
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{Be optimizavimo testavimas}{Be optimizavimo testavimas}}\label{md__r_e_a_d_m_e_autotoc_md8}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endhead
+Struct   &12.\+111s   &130.\+058s   &411kb    \\\cline{1-4}
+Klasė   &11.\+358s   &118.\+430s   &404kb   \\\cline{1-4}
+\end{longtabu}
+
+
+
+
+{\bfseries{Peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ {\bfseries{Struktūros testavimo rezultatai}}
+
+ {\bfseries{Struktūros failo dydis}}
+
+ {\bfseries{Klasės testavimo rezultatai}}
+
+ {\bfseries{Klasės failo dydis}}
+
+\end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{O1 optimizavimo lygio testavimas}{O1 optimizavimo lygio testavimas}}\label{md__r_e_a_d_m_e_autotoc_md9}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endhead
+Struct   &2.\+790s   &30.\+391s   &162kb    \\\cline{1-4}
+Klasė   &11.\+489s   &117.\+949s   &147kb   \\\cline{1-4}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item Su struktūra greitesni testavimo rezultatai, naudojant šį optimizavimo raktą.
+\item Struktūros ir klasių failų dydžiai mažesni, naudojant šį optimizavimo raktą.
+\end{DoxyItemize}
+
+
+
+{\bfseries{Peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ {\bfseries{Struktūros testavimo rezultatai}}
+
+ {\bfseries{Struktūros failo dydis}}
+
+ {\bfseries{Klasės testavimo rezultatai}}
+
+ {\bfseries{Klasės failo dydis}}
+
+\end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{O2 optimizavimo lygio testavimas}{O2 optimizavimo lygio testavimas}}\label{md__r_e_a_d_m_e_autotoc_md10}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endhead
+Struct   &2.\+662s   &30.\+459s   &162kb    \\\cline{1-4}
+Klasė   &2.\+767s   &29.\+540s   &147kb   \\\cline{1-4}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item Su klase greitesni testavimo rezultatai, naudojant šį optimizavimo raktą.
+\item Struktūros ir klasių failų dydžiai išliko tokie patys, kaip su praeitu optimizavimo raktu.
+\end{DoxyItemize}
+
+
+
+{\bfseries{Peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ {\bfseries{Struktūros testavimo rezultatai}}
+
+ {\bfseries{Struktūros failo dydis}}
+
+ {\bfseries{Klasės testavimo rezultatai}}
+
+ {\bfseries{Klasės failo dydis}}
+
+\end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysubsection{\texorpdfstring{O3 optimizavimo lygio testavimas}{O3 optimizavimo lygio testavimas}}\label{md__r_e_a_d_m_e_autotoc_md11}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(1mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Greitis(10mln.)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis    }\\\cline{1-4}
+\endhead
+Struct   &2.\+734s   &28.\+984s   &161kb    \\\cline{1-4}
+Klasė   &2.\+738s   &29.\+735s   &162kb   \\\cline{1-4}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item Testavimo greičio rezultatai panašūs su praeitu optimizavimo raktu.
+\item Failų dydžiai minimaliai pasikeitė.
+\end{DoxyItemize}
+
+
+
+{\bfseries{Peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ {\bfseries{Struktūros testavimo rezultatai}}
+
+ {\bfseries{Struktūros failo dydis}}
+
+ {\bfseries{Klasės testavimo rezultatai}}
+
+ {\bfseries{Klasės failo dydis}}
+
+\end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{Konteinerių testavimas}{Konteinerių testavimas}}\label{md__r_e_a_d_m_e_autotoc_md12}
+
+
+{\bfseries{Peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+\end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{\texorpdfstring{Testavimo sistemos parametrai\+:}{Testavimo sistemos parametrai\+:}}\label{md__r_e_a_d_m_e_autotoc_md13}
+
+\begin{DoxyItemize}
+\item Saugykla\+: 256 GB, Integruota NVMe SSD
+\item Atmintis\+: 8 GB RAM
+\item Procesorius\+: Apple M1
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysection{\texorpdfstring{1 strategija}{1 strategija}}\label{md__r_e_a_d_m_e_autotoc_md14}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Naudojant Vector tipo konteinerius\+:}{Naudojant Vector tipo konteinerius\+:}}\label{md__r_e_a_d_m_e_autotoc_md15}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endhead
+1 000   &0.\+023s   &0.\+004s   &0.\+005s   &0.\+033s    \\\cline{1-5}
+10 000   &0.\+113s   &0.\+018s   &0.\+023s   &0.\+155s    \\\cline{1-5}
+100 000   &0.\+763s   &0.\+188s   &0.\+237s   &1.\+189s    \\\cline{1-5}
+1 000 000   &7.\+448s   &2.\+105s   &2.\+673s   &12.\+227s    \\\cline{1-5}
+10 000 000   &74.\+810s   &24.\+911s   &31.\+783s   &131.\+505s   \\\cline{1-5}
+\end{longtabu}
+
+
+
+
+{\bfseries{peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ \end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Naudojant Deque tipo konteinerius\+:}{Naudojant Deque tipo konteinerius\+:}}\label{md__r_e_a_d_m_e_autotoc_md16}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endhead
+1 000   &0.\+023s   &0.\+004s   &0.\+005s   &0.\+034s    \\\cline{1-5}
+10 000   &0.\+093s   &0.\+019s   &0.\+023s   &0.\+136s    \\\cline{1-5}
+100 000   &0.\+766s   &0.\+193s   &0.\+239s   &1.\+198s    \\\cline{1-5}
+1 000 000   &7.\+312s   &2.\+160s   &2.\+638s   &12.\+111s    \\\cline{1-5}
+10 000 000   &73.\+857s   &25.\+580s   &30.\+620s   &130.\+058s   \\\cline{1-5}
+\end{longtabu}
+
+
+
+
+{\bfseries{peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ \end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{Naudojant List tipo konteinerius\+:}{Naudojant List tipo konteinerius\+:}}\label{md__r_e_a_d_m_e_autotoc_md17}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endhead
+1 000   &0.\+023s   &0.\+003s   &0.\+004s   &0.\+031s    \\\cline{1-5}
+10 000   &0.\+112s   &0.\+018s   &0.\+023s   &0.\+154s    \\\cline{1-5}
+100 000   &0.\+761s   &0.\+247s   &0.\+296s   &1.\+305s    \\\cline{1-5}
+1 000 000   &7.\+352s   &3.\+322s   &3.\+818s   &14.\+493s    \\\cline{1-5}
+10 000 000   &73.\+862s   &42.\+406s   &47.\+849s   &164.\+118s   \\\cline{1-5}
+\end{longtabu}
+
+
+
+
+{\bfseries{peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ \end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysection{\texorpdfstring{2 strategija}{2 strategija}}\label{md__r_e_a_d_m_e_autotoc_md18}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysubsection{\texorpdfstring{Naudojant Vector tipo konteinerius\+:}{Naudojant Vector tipo konteinerius\+:}}\label{md__r_e_a_d_m_e_autotoc_md19}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endhead
+1 000   &0.\+024s   &0.\+004s   &0.\+035s   &0.\+064s    \\\cline{1-5}
+10 000   &0.\+112s   &0.\+018s   &1.\+879s   &2.\+010s    \\\cline{1-5}
+100 000   &0.\+762s   &0.\+184s   &184.\+637s   &184.\+637s   \\\cline{1-5}
+\end{longtabu}
+
+
+
+
+{\bfseries{peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ \end{adjustwidth}
+
+
+
+\begin{DoxyItemize}
+\item Rezultatų su 1 000 000 ir 10 000 000 nėra, nes per ilgai trunka skaičiavimai (\texorpdfstring{$>$}{>}10min).
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md20}{}\doxysubsection{\texorpdfstring{Naudojant Deque tipo konteinerius\+:}{Naudojant Deque tipo konteinerius\+:}}\label{md__r_e_a_d_m_e_autotoc_md20}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endhead
+1 000   &0.\+021s   &0.\+004s   &0.\+006s   &0.\+032s    \\\cline{1-5}
+10 000   &0.\+114s   &0.\+019s   &0.\+025s   &0.\+158s    \\\cline{1-5}
+100 000   &0.\+765s   &0.\+192s   &0.\+252s   &1.\+210s    \\\cline{1-5}
+1 000 000   &7.\+337s   &2.\+128s   &2.\+772s   &12.\+238s   \\\cline{1-5}
+\end{longtabu}
+
+
+
+
+{\bfseries{peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ \end{adjustwidth}
+
+
+
+\begin{DoxyItemize}
+\item Rezultatų su 10 000 000 nėra, nes per ilgai trunka skaičiavimai (\texorpdfstring{$>$}{>}10min).
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md21}{}\doxysubsection{\texorpdfstring{Naudojant List tipo konteinerius\+:}{Naudojant List tipo konteinerius\+:}}\label{md__r_e_a_d_m_e_autotoc_md21}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endhead
+1 000   &0.\+023s   &0.\+003s   &0.\+001s   &0.\+028s    \\\cline{1-5}
+10 000   &0.\+113s   &0.\+018s   &0.\+005s   &0.\+137s    \\\cline{1-5}
+100 000   &0.\+761s   &0.\+239s   &0.\+061s   &1.\+062s    \\\cline{1-5}
+1 000 000   &7.\+433s   &3.\+324s   &0.\+668s   &11.\+344s    \\\cline{1-5}
+10 000 000   &72.\+891s   &42.\+406s   &8.\+586s   &123.\+646s   \\\cline{1-5}
+\end{longtabu}
+
+
+
+
+{\bfseries{peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ \end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md22}{}\doxysection{\texorpdfstring{3 strategija}{3 strategija}}\label{md__r_e_a_d_m_e_autotoc_md22}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md23}{}\doxysubsection{\texorpdfstring{Naudojant Vector tipo konteinerius\+:}{Naudojant Vector tipo konteinerius\+:}}\label{md__r_e_a_d_m_e_autotoc_md23}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Failo dydis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skaitymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rūšiavimo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Skirstymo laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Veikimo laikas    }\\\cline{1-5}
+\endhead
+1 000   &0.\+023s   &0.\+004s   &0.\+001s   &0.\+028s    \\\cline{1-5}
+10 000   &0.\+112s   &0.\+019s   &0.\+005s   &0.\+137s    \\\cline{1-5}
+100 000   &0.\+758s   &0.\+191s   &0.\+051s   &1.\+001s    \\\cline{1-5}
+1 000 000   &7.\+303s   &2.\+263s   &0.\+622s   &10.\+189s    \\\cline{1-5}
+10 000 000   &73.\+373s   &24.\+204s   &8.\+597s   &106.\+176s   \\\cline{1-5}
+\end{longtabu}
+
+
+
+
+{\bfseries{peržiūrėti}}\begin{adjustwidth}{1em}{0em}
+
+
+ \end{adjustwidth}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md24}{}\doxysection{\texorpdfstring{Išvados}{Išvados}}\label{md__r_e_a_d_m_e_autotoc_md24}
+Remiantis atliktų testų rezultatais, galime padaryti keletą išvadų\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Vector tipo konteineriai}}\+: Vector tipo konteineriai parodė geriausius rezultatus su mažesniais failais. Tačiau, kai studentų kiekis padidėjo iki 1 000 000 ir 10 000 000, Vector tipo konteinerių veikimo laikas žymiai padidėjo, naudojant antrąją strategiją, kuri yra neefektyvi su šiuo konteineriu tipu. Pirmoji ir trečioji strategija parodė greičiausius rezultatus.
+\item {\bfseries{Deque tipo konteineriai}}\+: Deque tipo konteineriai parodė panašius rezultatus kaip ir Vector tipo konteineriai. Tačiau, jie buvo šiek tiek greitesni su didesniais failų dydžiais. Kaip ir su vektoriais, antroji strategija buvo neefektyvi.
+\item {\bfseries{List tipo konteineriai}}\+: List tipo konteineriai parodė geriausius rezultatus su didesniais failų dydžiais. Jie buvo ypač efektyvūs naudojant antrąją strategiją.
+\end{DoxyEnumerate}
+
+Bendra išvada yra, kad konteinerio tipo ir strategijos pasirinkimas gali turėti didelę įtaką programos veikimo laikui, ypač dirbant su didelėmis duomenų apimtimis.
+
+~\newline
+\hypertarget{md__r_e_a_d_m_e_autotoc_md25}{}\doxysection{\texorpdfstring{Senesnių versijų aprašymai}{Senesnių versijų aprašymai}}\label{md__r_e_a_d_m_e_autotoc_md25}
+
+\begin{DoxyItemize}
+\item v.\+pradinė\+: Pradinė versija. Nuskaito vartotojo įvestį, patikrina ją, leidžia vartotojui pasirinkti tarp dviejų galutinio balo skaičiavimo būdų (vidurkis ar mediana), ir išveda duomenis ekrane.
+\item v0.\+1\+: Prideda galimybę pasirinkti iš 4 skirtingų būdų įvesti arba generuoti duomenis / baigti programą. Dinamiškai paskiria atmintį pagal įvestų duomenų kiekį. Išveda duomenis ekrane.
+\item v0.\+2\+: Prideda galimybę skaityti duomenis iš failo. Leidžia vartotojui pasirinkti iš 5 skirtingų būdų įvesti, skaityti arba generuoti duomenis. Dinamiškai skiria atmintį pagal įvestą / nuskaitytą duomenų kiekį. Atidaro testavimo failus ir apskaičiuoja laiką, kurį praleidžia apdorojant duomenis iš failų. Išveda duomenis pasirinktinai ekrane arba faile.
+\item v0.\+3\+: Prideda išimčių valdymą duomenų nuskaitymui. Visi pranešimai išvedami lietuvių kalba. Projektas išskaidytas į kelis failus (.h ir .cpp).
+\item v0.\+4\+: Prideda galimybę generuoti penkis atsitiktinius studentų sąrašų failus, sudarytus iš\+: 1 000, 10 000, 100 000, 1 000 000, 10 000 000 įrašų. Atlieka tyrimus / testavimus su sugeneruotais failais. Surūšiuoja studentus ir išveda į du naujus failus.
+\item v1.\+0\+\_\+pradinė\+: Prideda 3 skirtingus konteinerio tipo pasirinkimus testavimui -\/ vector, deque, list.
+\item v1.\+0\+: Yra 3 skirtingos konteinerių testavimo strategijos ir galimybė sukompiliuoti programą, naudojant Makefile.
+\item v1.\+1\+: Naudojamos klasės su destruktoriais ir konstruktoriais, vietoj struktūrų.
+\item v1.\+2\+: Prideda galimybė testuoti visus "{}\+Rule of five"{} konstruktorius ir I/O operatorius.
+\item v1.\+5\+: Abstrakti klasė \doxylink{class_person}{Person}. \doxylink{class_student}{Student} klasė yra \doxylink{class_person}{Person} klasės išvestinė klasė. 
+\end{DoxyItemize}

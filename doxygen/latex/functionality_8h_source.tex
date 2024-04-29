@@ -1,0 +1,26 @@
+\doxysection{functionality.\+h}
+\hypertarget{functionality_8h_source}{}\label{functionality_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FUNCTIONALITY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FUNCTIONALITY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}student.h"{}}\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}calculations.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{int}\ getContainerTypeFromUser();}
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{int}\ generateGrade();}
+\DoxyCodeLine{00012\ std::string\ generateName();}
+\DoxyCodeLine{00013\ std::string\ generateLastName();}
+\DoxyCodeLine{00014\ std::string\ isString(\textcolor{keyword}{const}\ std::string\&\ prompt);}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{int}\ isGrade(\textcolor{keyword}{const}\ std::string\&\ prompt);}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ generateFile(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ outputToTerminal(\textcolor{keyword}{const}\ std::vector<Student>\&\ studentsLow,\ \textcolor{keyword}{const}\ std::vector<Student>\&\ studentsHigh,\ \textcolor{keywordtype}{bool}\ Median);}
+\DoxyCodeLine{00018\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ outputToFile(\textcolor{keyword}{const}\ Container\&\ students,\ \textcolor{keywordtype}{size\_t}\ m,\ \textcolor{keywordtype}{bool}\ Median,\ \textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FUNCTIONALITY\_H}}
+
+\end{DoxyCode}

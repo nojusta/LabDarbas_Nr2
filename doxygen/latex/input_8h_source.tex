@@ -1,0 +1,35 @@
+\doxysection{input.\+h}
+\hypertarget{input_8h_source}{}\label{input_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INPUT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INPUT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}student.h"{}}\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}calculations.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}functionality.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{bool}\ getMedianPreference();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ processStudents(Container\&\ students,\ \textcolor{keywordtype}{bool}\ Median,\ std::chrono::high\_resolution\_clock::time\_point\ startTotal);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{int}\ Menu();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ std::string\ getFilenameFromUser();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ readData(std::ifstream\&\ fin,\ Container\&\ students);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ openFiles(\textcolor{keyword}{const}\ std::vector<std::string>\&\ filenames,\ Container\&\ students,\ \textcolor{keywordtype}{bool}\ Median,\ \textcolor{keywordtype}{int}\ strategy);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ input(\mbox{\hyperlink{class_student}{Student}}\&\ data,\ \textcolor{keywordtype}{bool}\&\ Median);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ std::string\ studentData(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ s);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INPUT\_H}}
+
+\end{DoxyCode}
