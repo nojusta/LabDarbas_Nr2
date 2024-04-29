@@ -20,32 +20,49 @@ cd *projekto vieta kompiuteryje*
 CXX = g++
 
 # Kompiliatoriaus parametrai
-CXXFLAGS = -std=c++14 -O3
+CXXFLAGS = -std=c++14 -O3 -mmacosx-version-min=14.3
 
-# Vykdymo failo pavadinimas
+# Vykdomo failo pavadinimas
 TARGET = v2
 
-# Šaltinio failai
+# Source failai
 SRCS = main.cpp functionality.cpp input.cpp calculations.cpp student.cpp
 
-# Objektų failai
+# Object failai
 OBJS = $(SRCS:.cpp=.o)
+
+# Google Test biblioteka
+GTEST = /usr/local/lib/libgtest.a /usr/local/lib/libgtest_main.a
+
+# Testuojami failai
+TEST_SRCS = student_test.cpp
+
+# Testuojami objekto failai
+TEST_OBJS = $(TEST_SRCS:.cpp=.o)
+
+# Testuojamo failo pavadinimas
+TEST_TARGET = student_test
 
 # Taisyklė programa susieti
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-# Taisyklė kompiliuoti šaltinio failus
+# Rule to build the test executable
+$(TEST_TARGET): student.o $(TEST_OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TEST_TARGET) student.o $(TEST_OBJS) $(GTEST)
+
+# Taisyklė kompiliuoti failus
 .cpp.o:
 	$(CXX) $(CXXFLAGS) -c $<  -o $@
 
 # Taisyklė išvalyti tarpinius failus
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(TEST_OBJS)
 
 # Taisyklė išvalyti viską
 distclean: clean
-	$(RM) $(TARGET)
+	$(RM) $(TARGET) $(TEST_TARGET)
+
 ```
 - Sukompiliuokite programą naudodami make komandą:
 ```
@@ -95,7 +112,19 @@ make distclean
   - Galima testuoti visus "Rule of five" konstruktorius ir I/O operatorius.
   - Yra abstrakti klasė Person. Student klasė yra Person klasės išvestinė klasė.
   - DoxyGen sugeneruota HTML/TEX formato dokumentacija.
+  - Atlikti unit testai su Google Test.
 - Norėdami baigti darbą su programa, pasirinkite atitinkamą skaičių.
+
+## Unit testai naudojant Google Test.
+
+Šis projektas naudoja Google Test unit testavimui. Norėdami paleisti testus, sekite šiuos žingsnius:
+
+1. Sukurkite projektą naudodami `make`.
+2. Paleiskite testus su `./student_test`.
+
+Išvestis turėtų atrodyti maždaug taip:
+
+![Testavimo rezultatai](./Images/test.png)
 
 ## Klasės naudojami "Rule of five" ir I/O operatoriai.
 
