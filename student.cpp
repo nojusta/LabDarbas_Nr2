@@ -114,3 +114,9 @@ double Student::calculateFinalGrade(bool median) const {
     double homeworkGrade = median ? calculateMedian() : calculateAverage();
     return 0.4 * homeworkGrade + 0.6 * examResults;
 }
+
+/* 
+pdflatex refman.tex
+makeindex refman.idx
+pdflatex refman.tex
+*/
